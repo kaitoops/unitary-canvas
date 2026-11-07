@@ -1,18 +1,16 @@
 {
   "_schema": "specimen-registry-v1",
-  "_policy": "二进制标本不进公开仓库（版权 + DMCA 风险）。本表登记标本的存在、
-              位置、哈希与萃取清单，使 Agent 在拿到合法副本后能立即解析利用。",
+  "_policy": "二进制标本不进公开仓库（版权 + DMCA 风险）。本表登记标本的存在、\n              位置、哈希与萃取清单，使 Agent 在拿到合法副本后能立即解析利用。",
   "specimens": [
     {
       "id": "SPC-001",
       "name": "CDP 通道变体画布本体",
       "role": "重构参考标本 + CDP 通道宿主",
       "version": "V3.5.1 (maicanvas_v351_cdp)",
-      "sha256": "FILL_ME_部署时用 Get-FileHash 登记实际值",
+      "sha256": "31832a7c6b160011e7f10e68989b78bf997e45bedf8edbb59e249f1a540e02ee",
       "archived_at": "本机固化存储路径（脱敏后填写）",
       "preserved": "2026-11 前后，用户下令特别固化保存的副本",
-      "deprecation_note": "旧版麻衣部署线已弃用；本标本作为 CDP 通道功能的
-                          固化参考与重构基准继续有效",
+      "deprecation_note": "旧版麻衣部署线已弃用；本标本作为 CDP 通道功能的\n                          固化参考与重构基准继续有效",
       "extraction_checklist": [
         "段表：151 项 (ptr,len) 定制封装结构（非标准 brotli，勿按标准格式解）",
         "资产表：/assets/index-*.js、index-*.css 文件名与哈希（版本指纹）",
@@ -23,9 +21,15 @@
         "磁盘缓存路径约定：Documents/QiaodouCache/{images,thumbnails}",
         "CDP 启动参数面：--remote-debugging-port 注入点"
       ],
-      "reconstruction_relevance": "逆向原则奔着重构去：以上萃取项即重构规格的
-                                  输入源，萃取产物（文本规格）进仓库，本体不进",
-      "access": "私有渠道按需提供 / 用户自有副本哈希比对"
+      "reconstruction_relevance": "逆向原则奔着重构去：以上萃取项即重构规格的\n                                  输入源，萃取产物（文本规格）进仓库，本体不进",
+      "access": "私有渠道按需提供 / 用户自有副本哈希比对",
+      "deployment_fork": {
+        "date": "2026-11-07",
+        "exe_rename": "maicanvas_v351_cdp.exe -> yzcanvas_v351_cdp.exe（部署副本去品牌化改名，原版标本指纹不变）",
+        "bridge_patch": "等长 UTF-8 补丁 3 处：桥接指令串「我的桥豆麻衣画布已开启 Codex 本地桥接」->「我的幺正画布已经开启了 Codex 本地桥接」（Rust 原生区 1 + 内嵌 JS 2，Rust 串 len 头不动）",
+        "patched_sha256": "13434a1000d97ddea6bda1edd03c45f9612cc216365c4901cdadfac63f664f15",
+        "note": "JS bundle 侧同步改同句（shim 拦截供给件）；双源（JS+Rust）文案逐字一致是 Codex 粘贴校验的前置条件"
+      }
     }
   ]
 }

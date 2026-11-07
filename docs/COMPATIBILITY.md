@@ -38,3 +38,9 @@
 - **运行态优先**：所有改写走 CDP Fetch 拦截，不碰 VM 内文件、不碰 exe（离线改写已证伪，见 TROUBLESHOOTING P-20）
 - **可回退**：任一补丁层（shim/注入脚本）停止即回原版；localStorage 迁移保留旧键
 - **最小知识假设**：Agent 不需要理解 exe 内部结构即可完成部署——理解内部结构只在重构工作线需要，届时按 `specimens/registry.json` 的 extraction_checklist 走
+
+## 3. 部署别名与补丁分叉（2026-11-07 起）
+
+- **原版标本身份**：`maicanvas_v351_cdp`，sha256 `31832a7c…0e02ee`（指纹表/registry 以此为准）。
+- **部署副本**：已去品牌化改名 `yzcanvas_v351_cdp.exe` + 桥接串等长补丁 3 处（补丁版 sha256 `13434a10…664f15`，详见 `specimens/registry.json` 的 `deployment_fork`）。
+- **注意**：若你的部署沿用原版名，进程名相关坑位（TROUBLESHOOTING）按 `maicanvas_v351_cdp` 理解；改名部署则对应替换。
